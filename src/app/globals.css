@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --color-ink-950: #071320;
+  --color-ink-900: #0a1a2b;
+  --color-ink-800: #102638;
+  --color-ink-700: #173349;
+  --color-ink-600: #21465f;
+  --color-petrol-500: #1d5c68;
+  --color-petrol-400: #2a7d83;
+  --color-gold-500: #d8a63f;
+  --color-gold-400: #e5bb63;
+  --color-gold-300: #f0d394;
+  --color-cream-50: #faf8f3;
+  --color-cream-100: #f4f1e9;
+  --color-cream-200: #e9e4d7;
+  --color-line: #e3ddd0;
+  --color-success: #1f8a5b;
+  --color-danger: #c14434;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream-50);
+  color: var(--color-ink-900);
+}
+
+::selection {
+  background: var(--color-gold-300);
+  color: var(--color-ink-950);
+}
+
+input,
+select,
+textarea,
+button {
+  font-family: inherit;
+}
+
+/* Shared field styling */
+.field {
+  width: 100%;
+  border-radius: 0.6rem;
+  border: 1px solid var(--color-line);
+  background-color: #fff;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.875rem;
+  color: var(--color-ink-900);
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field:focus {
+  border-color: var(--color-petrol-400);
+  box-shadow: 0 0 0 3px rgba(42, 125, 131, 0.15);
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-ink-700);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.6rem;
+  font-weight: 700;
+  font-size: 0.875rem;
+  padding: 0.65rem 1.1rem;
+  transition: transform 0.12s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  cursor: pointer;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btn-gold {
+  background-color: var(--color-gold-500);
+  color: var(--color-ink-950);
+}
+
+.btn-gold:hover:not(:disabled) {
+  background-color: var(--color-gold-400);
+}
+
+.btn-ink {
+  background-color: var(--color-ink-900);
+  color: #fff;
+}
+
+.btn-ink:hover:not(:disabled) {
+  background-color: var(--color-ink-700);
+}
+
+.btn-outline {
+  border: 1px solid var(--color-line);
+  background: #fff;
+  color: var(--color-ink-900);
+}
+
+.btn-outline:hover:not(:disabled) {
+  border-color: var(--color-ink-700);
+}
+
+.card {
+  background: #fff;
+  border: 1px solid var(--color-line);
+  border-radius: 0.9rem;
+}
+
+.hero-mesh {
+  background-image: radial-gradient(circle at 15% 20%, rgba(216, 166, 63, 0.18), transparent 45%),
+    radial-gradient(circle at 85% 10%, rgba(42, 125, 131, 0.35), transparent 50%),
+    linear-gradient(135deg, #071320 0%, #0a1a2b 55%, #102638 100%);
+}
+
+.ticket-edge {
+  background-image: radial-gradient(circle at 0 50%, transparent 8px, #fff 8px),
+    radial-gradient(circle at 100% 50%, transparent 8px, #fff 8px);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise-in {
+  animation: riseIn 0.4s ease both;
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(31, 138, 91, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(31, 138, 91, 0);
+  }
+}
+
+.live-dot {
+  animation: pulseDot 1.8s infinite;
+}
